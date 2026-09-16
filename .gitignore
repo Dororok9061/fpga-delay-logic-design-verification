@@ -22,6 +22,7 @@ build/
 !01_shift_register_baseline/results/*.vcd
 !02_circular_queue_ppa/results/*.vcd
 !03_memory_based_dv/results/*.vcd
+!runs/2026-09-16/*/results/*.vcd
 
 # Quartus generated data
 db/
