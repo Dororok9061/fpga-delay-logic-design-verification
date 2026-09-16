@@ -1,0 +1,1 @@
+$ iverilog.exe -g2012 -Wall -s tb_delay_logic -s dump_trace -o results/simulation.vvp rtl/delay_logic.sv tb/tb_delay_logic.sv tb/dump_trace.sv

@@ -1,0 +1,5 @@
+{
+  "project": 1,
+  "dut": "delay_logic",
+  "tb": "tb_delay_logic"
+}

@@ -1,0 +1,106 @@
+{
+  "date": "2026-09-16",
+  "method": "Windows application screenshot via Computer Use; no generated UI or compositing",
+  "captures": [
+    {
+      "file": "project1_shift_register/evidence/gtkwave_detail.png",
+      "size": [
+        1467,
+        591
+      ],
+      "sha256": "aa1687a1556979a474d5f510ab34d1add2fca95014850b8bd8f4e13692bbd5d2",
+      "source_sha256": "d8c2da13d5521c021fb433397342bf8960053a3ac5fbf7dd19620d9688d58908",
+      "transform": "Trim window-exterior desktop margin only: (16,15,1483,606)."
+    },
+    {
+      "file": "project1_shift_register/evidence/gtkwave_full.png",
+      "size": [
+        1467,
+        591
+      ],
+      "sha256": "7414c4069c522675de9e5ebc98fa9cc3b48b6cbcdda0d3ef10e62090af13c729",
+      "source_sha256": "74e769333cef3c45fc82910e9a87c93f52cf8e56e31956b2533f8612cb6f2687",
+      "transform": "Trim window-exterior desktop margin only: (16,15,1483,606)."
+    },
+    {
+      "file": "project1_shift_register/evidence/vscode_rtl_testbench.png",
+      "size": [
+        1707,
+        1019
+      ],
+      "sha256": "de56ccd2e882ad920f89222b724034954f5bcae48c4dcf3b52d8e7f7a9033fea",
+      "source_sha256": "cfaaf0087987c0415402cf1fb84db71357bb4bd34da715f822ae9f3a9727b21c",
+      "transform": "PNG encoding only; full application window unchanged."
+    },
+    {
+      "file": "project2_circular_queue/evidence/gtkwave_detail.png",
+      "size": [
+        1467,
+        591
+      ],
+      "sha256": "aa19f0716139aae4b75a7fef6ef2f2e72058b8af8efdf2e8ccb668496344d656",
+      "source_sha256": "d3395f16d1795de2ea226a41093d31754e89a24eebb4ae12459cd292341b0b5b",
+      "transform": "Trim window-exterior desktop margin only: (16,15,1483,606)."
+    },
+    {
+      "file": "project2_circular_queue/evidence/gtkwave_full.png",
+      "size": [
+        1467,
+        591
+      ],
+      "sha256": "7b1ec3023068134c556620e5ac3c712d546a75c7ab5897352346a35b13951cb4",
+      "source_sha256": "4fc9134b6d15ed96cd421eea9edbbe6f594c4f0152861ee22148a6e91c6450f6",
+      "transform": "Trim window-exterior desktop margin only: (16,15,1483,606)."
+    },
+    {
+      "file": "project2_circular_queue/evidence/vscode_rtl_testbench.png",
+      "size": [
+        1707,
+        1019
+      ],
+      "sha256": "072eb604f1e4034143b21882721484467ba2ab1525c15c56518018a2bbfbd5bc",
+      "source_sha256": "a29bd6e285aa081fc3f358357ddbb23368e4dda9607256aee62e94ca5ddf0032",
+      "transform": "PNG encoding only; full application window unchanged."
+    },
+    {
+      "file": "project3_memory_delay/evidence/gtkwave_scenario1.png",
+      "size": [
+        1467,
+        591
+      ],
+      "sha256": "0279f80eaa25eec925a9514909d70576c5ec2a5bba9bc96f6138feb720ca5d77",
+      "source_sha256": "c66ab17b1839124752c0a442277e5e6eea4692cff74489c9aeeaa8cdddc697f4",
+      "transform": "Trim window-exterior desktop margin only: (16,15,1483,606)."
+    },
+    {
+      "file": "project3_memory_delay/evidence/gtkwave_scenario2.png",
+      "size": [
+        1467,
+        591
+      ],
+      "sha256": "511eeb39a5f0ce1f4a403175b198806d1f52172fcc2c895cbc2c13aebde8b5a6",
+      "source_sha256": "a162894e8fe7ab462c022fa7ff0505608cbb0d4f9dbb2e82638580fcec94a3e4",
+      "transform": "Trim window-exterior desktop margin only: (16,15,1483,606)."
+    },
+    {
+      "file": "project3_memory_delay/evidence/gtkwave_scenario3.png",
+      "size": [
+        1467,
+        591
+      ],
+      "sha256": "0ef1eb199c5f6d2139579b480dbf0015077686f948008c814a65f53fd8dc39c6",
+      "source_sha256": "7b1f356f9e1f911ea83b2041801b359b89fb088cb6cab9688c0bbf42a90fee87",
+      "transform": "Trim window-exterior desktop margin only: (16,15,1483,606)."
+    },
+    {
+      "file": "project3_memory_delay/evidence/vscode_rtl_testbench.png",
+      "size": [
+        1707,
+        1019
+      ],
+      "sha256": "bb8b55c5627160756ff29dddb7b158ec1c43bf7ac1f7c0993e832b4e8ed4bf53",
+      "source_sha256": "f67bb752827bb1c23d632a1f2fcdd1b8e063b24c9849d91b81bce09a80ca4f75",
+      "transform": "PNG encoding only; full application window unchanged."
+    }
+  ]
+}

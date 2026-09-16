@@ -1,0 +1,36 @@
+[*] Actual Icarus Verilog simulation - GTKWave save file
+[timestart] 0
+[size] 2200 850
+[pos] 20 20
+*-14.0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_expanded] 0
+[signals_width] 330
+@200
+-PROJECT 2 - Icarus
+@28
+tb_circular_queue_delay_logic.iClk
+@28
+tb_circular_queue_delay_logic.iRsn
+@24
+tb_circular_queue_delay_logic.iDelay[3:0]
+@28
+tb_circular_queue_delay_logic.iDataEn
+@22
+tb_circular_queue_delay_logic.iData[15:0]
+@28
+tb_circular_queue_delay_logic.oDataEn
+@22
+tb_circular_queue_delay_logic.oData[15:0]
+@24
+tb_circular_queue_delay_logic.dut.write_ptr[3:0]
+@24
+tb_circular_queue_delay_logic.dut.read_ptr[3:0]
+@24
+tb_circular_queue_delay_logic.checked_cycles
+@28
+tb_circular_queue_delay_logic.test_done
+@24
+tb_circular_queue_delay_logic.error_count
+
+
+

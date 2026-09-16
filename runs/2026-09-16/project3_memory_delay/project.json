@@ -1,0 +1,5 @@
+{
+  "project": 3,
+  "dut": "memory_delay_logic",
+  "tb": "tb_memory_delay_logic"
+}

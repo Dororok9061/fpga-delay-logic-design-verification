@@ -1,5 +1,64 @@
+# FPGA Programmable Delay Logic
+
+**Actual free-program screenshots · 2026-09-16**
+
+Icarus Verilog 14.0 → VCD → GTKWave. RTL and testbench are open in the actual VS Code editor.
+
+| Project | Current execution | Errors |
+|---|---|---|
+| 1: Shift Register | 31 checked cycles PASS | 0 |
+| 2: Circular Queue | 32 checked cycles PASS | 0 |
+| 3: Memory + Registered Output | 3 scenarios: 8/5, 14/4, 17/14 checked/valid cycles PASS | 0 |
+
+[Reproducible run and source files](runs/2026-09-16/) · [Verification manifest](runs/2026-09-16/verification_summary.json) · [Capture provenance](runs/2026-09-16/capture_manifest.json)
+
+Quartus/ModelSim were not executed in this run. The separately drawn gate/register structures are derived from RTL, not post-synthesis netlists. No new PPA values are claimed.
+
+Project 1/2 select the Nth newest sample including the current edge and output zero when invalid. Project 3 has a registered read with N complete clock periods of latency and holds the previous data when invalid. The current 31/32 checks are separate from the historical 20/26-check regression below.
+
+## Project 1 — Shift Register
+
+[RTL, testbench, raw VCD and logs](runs/2026-09-16/project1_shift_register/)
+
+![Actual GTKWave window](runs/2026-09-16/project1_shift_register/evidence/gtkwave_detail.png)
+
+![Actual VS Code RTL / testbench window](runs/2026-09-16/project1_shift_register/evidence/vscode_rtl_testbench.png)
+
+![RTL-derived gate/register schematic](runs/2026-09-16/project1_shift_register/evidence/structure.png)
+
+[gtkwave_full](runs/2026-09-16/project1_shift_register/evidence/gtkwave_full.png)
+
+## Project 2 — Circular Queue
+
+[RTL, testbench, raw VCD and logs](runs/2026-09-16/project2_circular_queue/)
+
+![Actual GTKWave window](runs/2026-09-16/project2_circular_queue/evidence/gtkwave_detail.png)
+
+![Actual VS Code RTL / testbench window](runs/2026-09-16/project2_circular_queue/evidence/vscode_rtl_testbench.png)
+
+![RTL-derived gate/register schematic](runs/2026-09-16/project2_circular_queue/evidence/structure.png)
+
+[gtkwave_full](runs/2026-09-16/project2_circular_queue/evidence/gtkwave_full.png)
+
+## Project 3 — Memory + Registered Output
+
+[RTL, testbench, raw VCD and logs](runs/2026-09-16/project3_memory_delay/)
+
+![Actual GTKWave window](runs/2026-09-16/project3_memory_delay/evidence/gtkwave_scenario3.png)
+
+![Actual VS Code RTL / testbench window](runs/2026-09-16/project3_memory_delay/evidence/vscode_rtl_testbench.png)
+
+![RTL-derived gate/register schematic](runs/2026-09-16/project3_memory_delay/evidence/structure.png)
+
+[gtkwave_scenario1](runs/2026-09-16/project3_memory_delay/evidence/gtkwave_scenario1.png) · [gtkwave_scenario2](runs/2026-09-16/project3_memory_delay/evidence/gtkwave_scenario2.png)
+
+## Historical repository record
+
+<details>
+<summary>Earlier July 2026 regression and design notes — separate from the run above</summary>
+
 <p align="center">
-  <img src="assets/hero/fpga_delay_logic_hero.svg" alt="FPGA programmable delay logic: shift register to circular queue to memory-based file-driven verification" width="100%">
+  <a href="assets/hero/fpga_delay_logic_hero.svg">Historical illustration</a>
 </p>
 
 # FPGA Programmable Delay Logic
@@ -38,10 +97,7 @@ Quartus was not installed on the verification host. Synthesis and numerical PPA 
 
 ## Architecture Evolution
 
-<picture>
-  <source srcset="docs/assets/en/architecture/architecture_evolution.svg" type="image/svg+xml">
-  <img src="docs/assets/en/architecture/architecture_evolution.png" alt="Architecture evolution from shift register to circular queue and file-driven memory-based verification" width="100%">
-</picture>
+<p>Historical diagram links: <a href="docs/assets/en/architecture/architecture_evolution.svg">architecture_evolution.svg</a> · <a href="docs/assets/en/architecture/architecture_evolution.png">architecture_evolution.png</a></p>
 
 | Stage | Engineering focus | Current evidence |
 |---|---|---|
@@ -53,10 +109,7 @@ Quartus was not installed on the verification host. Synthesis and numerical PPA 
 
 The five source-brief pages were interpreted and redrawn as eight bilingual engineering diagrams. No source-slide image is published; the redraw-to-source mapping and evidence boundaries are recorded in the [provenance manifest](docs/assets/architecture/diagram_provenance.yaml).
 
-<picture>
-  <source srcset="docs/assets/en/architecture/project1_shift_register_datapath.svg" type="image/svg+xml">
-  <img src="docs/assets/en/architecture/project1_shift_register_datapath.png" alt="Project 1 shift-register datapath, control logic, and core contract" width="100%">
-</picture>
+<p>Historical diagram links: <a href="docs/assets/en/architecture/project1_shift_register_datapath.svg">project1_shift_register_datapath.svg</a> · <a href="docs/assets/en/architecture/project1_shift_register_datapath.png">project1_shift_register_datapath.png</a></p>
 
 | Project | Review diagrams |
 |---|---|
@@ -85,26 +138,20 @@ The source implementation tested by the evidence run is commit `c356ade3998e36a7
 ## Executed Waveforms
 
 <p align="center">
-  <img src="docs/assets/en/results/project2_waveform.png" alt="Project 2 shift-register and circular-queue equivalence waveform" width="100%">
+  <a href="docs/assets/en/results/project2_waveform.png">Historical illustration</a>
 </p>
 
 The PNGs above are rendered from committed VCD files, not reconstructed expected behavior. Additional Project 1 and Project 3 waveforms are shown on the [English portfolio](https://dororok9061.github.io/fpga-delay-logic-design-verification/en/).
 
 ## File-Driven Verification
 
-<picture>
-  <source srcset="docs/assets/en/verification/file_driven_dv_flow.svg" type="image/svg+xml">
-  <img src="docs/assets/en/verification/file_driven_dv_flow.png" alt="Input and register files feed a Driver; DUT outputs and output.txt feed a Checker" width="100%">
-</picture>
+<p>Historical diagram links: <a href="docs/assets/en/verification/file_driven_dv_flow.svg">file_driven_dv_flow.svg</a> · <a href="docs/assets/en/verification/file_driven_dv_flow.png">file_driven_dv_flow.png</a></p>
 
 The Checker compares data and valid on every reference cycle, counts valid outputs, reports sample position plus expected/actual values on mismatch, and gates the final test verdict.
 
 ## PPA Boundary
 
-<picture>
-  <source srcset="docs/assets/en/ppa/ppa_comparison_matrix.svg" type="image/svg+xml">
-  <img src="docs/assets/en/ppa/ppa_comparison_matrix.png" alt="Four-case PPA method with numerical PPA marked BLOCKED" width="92%">
-</picture>
+<p>Historical diagram links: <a href="docs/assets/en/ppa/ppa_comparison_matrix.svg">ppa_comparison_matrix.svg</a> · <a href="docs/assets/en/ppa/ppa_comparison_matrix.png">ppa_comparison_matrix.png</a></p>
 
 The configured study targets Agilex 5 `A5ED065BB32AE6SR0`, 100 MHz, `BALANCED` optimization, virtual pins, vectorless Power Analyzer, and a 12.5% toggle assumption. The host scan found no Quartus executables, so utilization, Fmax, timing closure, power, and architecture-advantage numbers are not claimed.
 
@@ -146,3 +193,5 @@ This compiles all three projects and regenerates logs, VCD files, and the eviden
 **Hyeongrok Ryu · 류형록**
 
 FPGA RTL Design and Digital Verification Portfolio
+
+</details>

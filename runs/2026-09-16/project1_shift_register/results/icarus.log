@@ -1,0 +1,7 @@
+$ vvp.exe results/simulation.vvp +SCENARIO=0
+VCD info: dumpfile results/simulation.vcd opened for output.
+
+[TEST PASS] project1_shift_register: checked_cycles=31 errors=0
+
+tb/tb_delay_logic.sv:127: $finish called at 310000 (1ps)
+

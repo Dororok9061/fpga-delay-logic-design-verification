@@ -1,0 +1,5 @@
+{
+  "project": 2,
+  "dut": "circular_queue_delay_logic",
+  "tb": "tb_circular_queue_delay_logic"
+}

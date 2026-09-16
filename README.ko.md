@@ -1,5 +1,64 @@
+# FPGA Programmable Delay Logic
+
+**실제 무료 프로그램 화면 · 2026-09-16**
+
+Icarus Verilog 14.0 → VCD → GTKWave. RTL and testbench are open in the actual VS Code editor.
+
+| Project | Current execution | Errors |
+|---|---|---|
+| 1: Shift Register | 31 checked cycles PASS | 0 |
+| 2: Circular Queue | 32 checked cycles PASS | 0 |
+| 3: Memory + Registered Output | 3 scenarios: 8/5, 14/4, 17/14 checked/valid cycles PASS | 0 |
+
+[Reproducible run and source files](runs/2026-09-16/) · [Verification manifest](runs/2026-09-16/verification_summary.json) · [Capture provenance](runs/2026-09-16/capture_manifest.json)
+
+Quartus/ModelSim were not executed in this run. The separately drawn gate/register structures are derived from RTL, not post-synthesis netlists. No new PPA values are claimed.
+
+Project 1/2 select the Nth newest sample including the current edge and output zero when invalid. Project 3 has a registered read with N complete clock periods of latency and holds the previous data when invalid. The current 31/32 checks are separate from the historical 20/26-check regression below.
+
+## Project 1 — Shift Register
+
+[RTL, testbench, raw VCD and logs](runs/2026-09-16/project1_shift_register/)
+
+![Actual GTKWave window](runs/2026-09-16/project1_shift_register/evidence/gtkwave_detail.png)
+
+![Actual VS Code RTL / testbench window](runs/2026-09-16/project1_shift_register/evidence/vscode_rtl_testbench.png)
+
+![RTL-derived gate/register schematic](runs/2026-09-16/project1_shift_register/evidence/structure.png)
+
+[gtkwave_full](runs/2026-09-16/project1_shift_register/evidence/gtkwave_full.png)
+
+## Project 2 — Circular Queue
+
+[RTL, testbench, raw VCD and logs](runs/2026-09-16/project2_circular_queue/)
+
+![Actual GTKWave window](runs/2026-09-16/project2_circular_queue/evidence/gtkwave_detail.png)
+
+![Actual VS Code RTL / testbench window](runs/2026-09-16/project2_circular_queue/evidence/vscode_rtl_testbench.png)
+
+![RTL-derived gate/register schematic](runs/2026-09-16/project2_circular_queue/evidence/structure.png)
+
+[gtkwave_full](runs/2026-09-16/project2_circular_queue/evidence/gtkwave_full.png)
+
+## Project 3 — Memory + Registered Output
+
+[RTL, testbench, raw VCD and logs](runs/2026-09-16/project3_memory_delay/)
+
+![Actual GTKWave window](runs/2026-09-16/project3_memory_delay/evidence/gtkwave_scenario3.png)
+
+![Actual VS Code RTL / testbench window](runs/2026-09-16/project3_memory_delay/evidence/vscode_rtl_testbench.png)
+
+![RTL-derived gate/register schematic](runs/2026-09-16/project3_memory_delay/evidence/structure.png)
+
+[gtkwave_scenario1](runs/2026-09-16/project3_memory_delay/evidence/gtkwave_scenario1.png) · [gtkwave_scenario2](runs/2026-09-16/project3_memory_delay/evidence/gtkwave_scenario2.png)
+
+## Historical repository record
+
+<details>
+<summary>Earlier July 2026 regression and design notes — separate from the run above</summary>
+
 <p align="center">
-  <img src="assets/hero/fpga_delay_logic_hero.svg" alt="시프트 레지스터에서 순환 큐와 메모리 기반 파일 검증으로 발전하는 FPGA Delay Logic 포트폴리오" width="100%">
+  <a href="assets/hero/fpga_delay_logic_hero.svg">Historical illustration</a>
 </p>
 
 # FPGA Programmable Delay Logic
@@ -38,10 +97,7 @@ SystemVerilog · Icarus Verilog 13.0 · Quartus Project Automation · Python
 
 ## Architecture Evolution
 
-<picture>
-  <source srcset="docs/assets/ko/architecture/architecture_evolution.svg" type="image/svg+xml">
-  <img src="docs/assets/ko/architecture/architecture_evolution.png" alt="시프트 레지스터에서 순환 큐와 메모리 기반 파일 검증으로 이어지는 아키텍처 발전 과정" width="100%">
-</picture>
+<p>Historical diagram links: <a href="docs/assets/ko/architecture/architecture_evolution.svg">architecture_evolution.svg</a> · <a href="docs/assets/ko/architecture/architecture_evolution.png">architecture_evolution.png</a></p>
 
 | 단계 | 엔지니어링 초점 | 현재 근거 |
 |---|---|---|
@@ -53,10 +109,7 @@ SystemVerilog · Icarus Verilog 13.0 · Quartus Project Automation · Python
 
 강의자료 5페이지를 해석해 한·영 8종 엔지니어링 구조도로 새로 그렸습니다. 원본 슬라이드 이미지는 공개하지 않았으며, 그림별 출처 매핑과 증거 경계는 [provenance manifest](docs/assets/architecture/diagram_provenance.yaml)에 기록했습니다.
 
-<picture>
-  <source srcset="docs/assets/ko/architecture/project1_shift_register_datapath.svg" type="image/svg+xml">
-  <img src="docs/assets/ko/architecture/project1_shift_register_datapath.png" alt="Project 1 시프트 레지스터 데이터패스와 제어 로직 및 핵심 계약" width="100%">
-</picture>
+<p>Historical diagram links: <a href="docs/assets/ko/architecture/project1_shift_register_datapath.svg">project1_shift_register_datapath.svg</a> · <a href="docs/assets/ko/architecture/project1_shift_register_datapath.png">project1_shift_register_datapath.png</a></p>
 
 | Project | 검토용 구조도 |
 |---|---|
@@ -85,26 +138,20 @@ Project 3 실제 실행 결과:
 ## 실제 실행 파형
 
 <p align="center">
-  <img src="docs/assets/ko/results/project3_scenario3_waveform.png" alt="Project 3에서 delay가 3에서 5로 바뀌는 파일 기반 검증 PASS 파형" width="100%">
+  <a href="docs/assets/ko/results/project3_scenario3_waveform.png">Historical illustration</a>
 </p>
 
 파형 PNG는 예상값을 다시 그린 그림이 아니라 커밋된 VCD에서 직접 렌더링했습니다. Project 1·2 파형은 [한국어 포트폴리오](https://dororok9061.github.io/fpga-delay-logic-design-verification/)에서 함께 확인할 수 있습니다.
 
 ## 파일 기반 검증 구조
 
-<picture>
-  <source srcset="docs/assets/ko/verification/file_driven_dv_flow.svg" type="image/svg+xml">
-  <img src="docs/assets/ko/verification/file_driven_dv_flow.png" alt="입력 파일과 레지스터 파일, Input Driver, DUT, Output Checker 검증 흐름" width="100%">
-</picture>
+<p>Historical diagram links: <a href="docs/assets/ko/verification/file_driven_dv_flow.svg">file_driven_dv_flow.svg</a> · <a href="docs/assets/ko/verification/file_driven_dv_flow.png">file_driven_dv_flow.png</a></p>
 
 Checker는 모든 참조 cycle의 data와 valid를 비교하고 실제 valid 출력 개수를 계산합니다. 오류가 있으면 sample 위치, 기대값, 실제값을 기록하며 최종 verdict를 차단합니다.
 
 ## PPA 경계
 
-<picture>
-  <source srcset="docs/assets/ko/ppa/ppa_comparison_matrix.svg" type="image/svg+xml">
-  <img src="docs/assets/ko/ppa/ppa_comparison_matrix.png" alt="4개 구성 PPA 방법과 수치 결과 BLOCKED 상태" width="92%">
-</picture>
+<p>Historical diagram links: <a href="docs/assets/ko/ppa/ppa_comparison_matrix.svg">ppa_comparison_matrix.svg</a> · <a href="docs/assets/ko/ppa/ppa_comparison_matrix.png">ppa_comparison_matrix.png</a></p>
 
 Agilex 5 `A5ED065BB32AE6SR0`, 100 MHz, `BALANCED`, virtual pin, vectorless Power Analyzer, 12.5% toggle 가정으로 4개 구성을 준비했습니다. 하지만 호스트에서 Quartus 실행 파일을 찾지 못해 utilization, Fmax, timing closure, power, 아키텍처 우위 수치를 주장하지 않습니다.
 
@@ -130,3 +177,5 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\run_all_verificati
 
 **Hyeongrok Ryu · 류형록**  
 FPGA RTL Design and Digital Verification Portfolio
+
+</details>

@@ -1,0 +1,15 @@
+use_big_fonts yes
+use_pango_fonts yes
+fontname_signals Consolas 16
+fontname_waves Consolas 14
+fontname_logfile Consolas 18
+hier_max_level 1
+scale_to_time_dimension n
+show_base_symbols no
+use_roundcaps yes
+enable_horiz_grid yes
+disable_splash yes
+initial_window_x 2200
+initial_window_y 850
+
+

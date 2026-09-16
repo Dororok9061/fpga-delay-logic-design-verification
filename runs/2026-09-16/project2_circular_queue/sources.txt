@@ -1,0 +1,2 @@
+rtl/circular_queue_delay_logic.sv
+tb/tb_circular_queue_delay_logic.sv
