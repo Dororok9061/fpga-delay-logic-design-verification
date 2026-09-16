@@ -12,6 +12,9 @@ permissions:
 jobs:
   consistency:
     runs-on: ubuntu-latest
+    env:
+      # Syntax checks must not create forbidden build files in the public tree.
+      PYTHONPYCACHEPREFIX: ${{ runner.temp }}/python-cache
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -45,6 +48,12 @@ jobs:
       - name: Execute all RTL regressions
         run: python scripts/run_verification.py --repo . --project all
 
+      - name: Execute September source snapshots
+        run: |
+          python runs/2026-09-16/project1_shift_register/run_free.py
+          python runs/2026-09-16/project2_circular_queue/run_free.py
+          python runs/2026-09-16/project3_memory_delay/run_free.py
+
       - name: Upload executed verification evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -58,6 +67,7 @@ jobs:
             docs/assets/*/results/**
             docs/assets/*/architecture/project*.svg
             docs/assets/architecture/diagram_provenance.yaml
+            runs/2026-09-16/*/results/**
           if-no-files-found: error
           retention-days: 30
 
