@@ -42,8 +42,21 @@ jobs:
       - name: Validate bilingual lecture-brief redraws
         run: python scripts/check_lecture_diagrams.py
 
-      - name: Install Icarus Verilog
-        run: sudo apt-get update && sudo apt-get install -y iverilog
+      - name: Build pinned Icarus Verilog 14
+        # Ubuntu's older package rejects the supplied SystemVerilog string $fgets.
+        # Use the upstream revision reported by the actual September Windows run.
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y autoconf gperf flex bison build-essential
+          git init "$RUNNER_TEMP/iverilog-src"
+          git -C "$RUNNER_TEMP/iverilog-src" fetch --depth=1 https://github.com/steveicarus/iverilog.git c9ed76463e601b4f5cc9c8376d15c9f503d7f089
+          git -C "$RUNNER_TEMP/iverilog-src" checkout --detach FETCH_HEAD
+          cd "$RUNNER_TEMP/iverilog-src"
+          sh autoconf.sh
+          ./configure --prefix="$RUNNER_TEMP/iverilog"
+          make -j2
+          make install
+          echo "$RUNNER_TEMP/iverilog/bin" >> "$GITHUB_PATH"
 
       - name: Execute all RTL regressions
         run: python scripts/run_verification.py --repo . --project all
